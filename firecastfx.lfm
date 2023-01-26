@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<popupForm name="frmMain" width="250" height="320" drawContainer="true" resizable="true"
+    placement="center" title="SceneFX"  >
+    <style>
+        flowPart {
+            margins: {left=5, right=5, top=5, bottom=5};
+        }
+
+        label {
+            width: 120;
+            horzTextAlign: center;
+            margins: {right=5};
+        }
+        edit {
+            width: 60;
+            horzTextAlign: center;
+        }
+    </style>
+
+    <template name="parameters">
+        <flowPart minWidth="150" maxWidth="250" height="25">
+            <label align="left" text="$(label)" />
+            <edit align="left" field="$(field)" text="$(text)" readOnly="false" type="number" min="$(min)" max="$(max)" />
+        </flowPart>
+    </template>
+
+    <flowLayout align="client" orientation="vertical" horzAlign="justify"
+        margins="{left=20, top=20, bottom=20, right=20}">
+
+        <flowPart minWidth="150" maxWidth="230" height="25">
+            <checkBox name="cbxAtivarClouds" align="client" text="Ativar" field="checkClouds"/>
+        </flowPart>
+
+        <parameters label="Quantitade [4, 8]" text="4" field="quantidade" min="4" max="8" />
+        <parameters label="Velocidade [1, 10]" text="5" field="velocidade" min="1" max="10" />
+        
+        <parameters label="Tamanho [1, 10]" text="3" field="tamanho" min="1" max="10" />
+        <flowPart minWidth="150" maxWidth="230" height="25">
+            <label align="left" text="Direção" />
+            <comboBox name="cbx_direcao" align="client" width="100" field="direcao" items="{'Direita', 'Fundo'}" text="Direita"/>
+        </flowPart>
+        <flowPart minWidth="150" maxWidth="230" height="25">
+            <label align="left" text="Cor" />
+            <colorComboBox name="cbx_color" align="client" width="100" field="colorCloud"/>
+        </flowPart>
+
+        <flowPart minWidth="150" maxWidth="230" height="25">
+            <button name="btn_save" align="client" text="Aplicar mudanças" width="120" />
+        </flowPart>
+
+    </flowLayout>
+</popupForm>
